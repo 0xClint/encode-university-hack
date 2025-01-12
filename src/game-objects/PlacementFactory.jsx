@@ -1,3 +1,4 @@
+import { AnimalPlacement } from "@/game-objects/AnimalPlacement";
 import { CelebrationPlacement } from "@/game-objects/CelebrationPlacement";
 import { CiabattaPlacement } from "@/game-objects/CiabattaPlacement";
 import { ConveyorPlacement } from "@/game-objects/ConveyorPlacement";
@@ -9,10 +10,14 @@ import { FlyingEnemyPlacement } from "@/game-objects/FlyingEnemyPlacement";
 import { GoalPlacement } from "@/game-objects/GoalPlacement";
 import { GroundEnemyPlacement } from "@/game-objects/GroundEnemyPlacement";
 import { HeroPlacement } from "@/game-objects/HeroPlacement";
+import { HousePlacement } from "@/game-objects/HousePlacement";
 import { IcePickupPlacement } from "@/game-objects/IcePickupPlacement";
 import { IcePlacement } from "@/game-objects/IcePlacement";
 import { KeyPlacement } from "@/game-objects/KeyPlacement";
+import { LevelEntryPlacement } from "@/game-objects/LevelEnteryPlacement";
 import { LockPlacement } from "@/game-objects/LockPlacement";
+import { NamePlatePlacement } from "@/game-objects/NamePlatePlacement";
+import { PlantPlacement } from "@/game-objects/PlantPlacement";
 import { RoamingEnemyPlacement } from "@/game-objects/RoamingEnemyPlacement";
 import { SwitchableDoorPlacement } from "@/game-objects/SwitchableDoorPlacement";
 import { TeleportPlacement } from "@/game-objects/TeleportPlacement";
@@ -20,11 +25,6 @@ import { ThiefPlacement } from "@/game-objects/ThiefPlacement";
 import { WallPlacement } from "@/game-objects/WallPlacement";
 import { WaterPickupPlacement } from "@/game-objects/WaterPickupPlacement";
 import { WaterPlacement } from "@/game-objects/WaterPlacement";
-import { LevelEntryPlacement } from "@/game-objects/LevelEnteryPlacement";
-import { AnimalPlacement } from "@/game-objects/AnimalPlacement";
-import { HousePlacement } from "@/game-objects/HousePlacement";
-import { PlantPlacement } from "@/game-objects/PlantPlacement";
-import { NamePlatePlacement } from "@/game-objects/NamePlatePlacement";
 import {
   PLACEMENT_TYPE_HERO,
   PLACEMENT_TYPE_WALL,
@@ -48,14 +48,12 @@ import {
   PLACEMENT_TYPE_TELEPORT,
   PLACEMENT_TYPE_THIEF,
   PLACEMENT_TYPE_CIABATTA,
-} from "@/helpers/consts";
-import {
-  PLACEMENT_TYPE_ANIMAL,
-  PLACEMENT_TYPE_HOUSE,
   PLACEMENT_TYPE_LEVEL_ENTRY,
+  PLACEMENT_TYPE_HOUSE,
   PLACEMENT_TYPE_PLANT,
   PLACEMENT_TYPE_PLATE,
-} from "../helpers/consts";
+  PLACEMENT_TYPE_ANIMAL,
+} from "@/helpers/consts";
 
 const placementTypeClassMap = {
   [PLACEMENT_TYPE_HERO]: HeroPlacement,

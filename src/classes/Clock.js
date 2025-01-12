@@ -8,9 +8,14 @@ export class Clock {
     this.secondsRemaining = secondsRemaining;
     this.level = level;
     this.msRemainingInSecond = 1000;
+    this.isPaused = false;
   }
 
   tick() {
+    if (this.isPaused) {
+      return;
+    }
+
     this.msRemainingInSecond -= TIME_PER_TICK;
     if (this.msRemainingInSecond <= 0) {
       this.msRemainingInSecond = 1000;
@@ -28,5 +33,9 @@ export class Clock {
         console.log("BINK!");
       }
     }
+  }
+
+  stop() {
+    this.isPaused = true;
   }
 }

@@ -4,34 +4,35 @@ import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 import LevelPlacementsLayer from "./LevelPlacementsLayer";
 import { useEffect, useState } from "react";
 import { LevelState } from "@/classes/Levelstate";
-
-import { useRecoilValue } from "recoil";
-import { currentLevelIdAtom } from "@/atoms/currentLevelIdAtom";
 import TopHud from "@/components/hud/TopHud";
 import { DeathMessage } from "../hud/DeathMessage";
 import LevelCompleteMessage from "../hud/LevelCompleteMessage";
-import level1 from "../../Levels/L1";
+import EditorDropdown from "../hud/EditorDropdown";
+import { useLocation } from "react-router-dom";
+import landTemplate from "../../Levels/landTemplate";
 
-const levelData = level1;
-export default function RenderLevel() {
+
+export default function RenderGame({ gameData }) {
   const [level, setLevel] = useState(null);
+  const location = useLocation();
+  const check = location.pathname.includes("/levels");
 
   useEffect(() => {
     //Create and subscribe to state change
-    const levelState = new LevelState("DemoName", levelData, (newState) => {
+    const levelState = new LevelState("DemoName", gameData, (newState) => {
       setLevel(newState);
     });
 
     //Get initial state
     setLevel(levelState.getState());
 
-    //Route setting
-    // const check = router?.pathname.includes("/levels");
-    // if (check) {
+    // Route setting
+    if (check) {
       levelState.getState().setEditorMode(false);
-    // } else {
-    //   levelState.getState().turnOffClock();
-    // }
+    } else {
+      levelState.getState().turnOffClock();
+    }
+    setLevel(levelState.getState());
 
     //Destroy method when this component unmounts or cleanup
     return () => {
@@ -56,7 +57,8 @@ export default function RenderLevel() {
         {level.isCompleted && <LevelCompleteMessage />}
         {level.deathOutcome && <DeathMessage level={level} />}
       </div>
-      <TopHud level={level} />
+      <TopHud level={level} isLevelMode={check} />
+      <EditorDropdown level={level} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { iExecDataProtectorClient } from "../IExecConfig";
+import tempJson from "../utils/temp.json";
 
-const protectedData = "0x7ccB4a2e33fDC7A5a772f3B048c93677De9853b2";
+const protectedData = "0x617c061ab8576d420ab54dcf20190d46a0d43f94";
 const u1 = "0x77B708A7102A2e905a056BFC34d82631138918CC";
 const u2 = "0xf1E507654e8E8b35bf467fd255c1c5787527aC2D";
 const APP_ADDRESS = "web3mail.apps.iexec.eth";
@@ -16,7 +17,7 @@ const APP_ONLY_WHITELIST = "0xe124bf275bbfeedae6c968b5d52b1d3b7fba0468";
 const WORKERPOOL_ADDRESS = "prod-v8-learn.main.pools.iexec.eth";
 
 const TASK_ID =
-  "0x8c50fd13d05552c96a1428b658c10fc8b03c474ddb9deb2d010ce2db77add820";
+  "0xee6b78c0ad8cb0d017ce073c16ffeb0ef75166677d8ddf541774b6a21eadce46";
 function Temp() {
   const createProtectedData = async () => {
     const res = await iExecDataProtectorClient.core.protectData({
@@ -34,7 +35,7 @@ function Temp() {
 
   const getProtectedData = async () => {
     const res = await iExecDataProtectorClient.core.getProtectedData({
-      owner: u2,
+      owner: u1,
     });
     console.log(res);
   };
@@ -138,7 +139,7 @@ function Temp() {
     //   },
     // });
     // console.log(res);
-
+    let taskID;
     try {
       const consumeProtectedDataResult =
         await iExecDataProtectorClient.sharing.consumeProtectedData({
@@ -146,15 +147,36 @@ function Temp() {
           app: PROTECTTED_DATA_DELIVERY_TEE_APP,
           workerpool: WORKERPOOL_ADDRESS,
           onStatusUpdate: (status) => {
+            // if(status.payload) taskID = status.payload.taskID
             console.log("[consumeProtectedData] status", status);
           },
         });
-      console.log("consumeProtectedDataResult", consumeProtectedDataResult);
 
-      const contentAsBlob = new Blob([consumeProtectedDataResult.result]);
-      const contentAsObjectUrl = URL.createObjectURL(contentAsBlob);
-      console.log(contentAsBlob);
-      console.log(contentAsObjectUrl);
+      const res =
+        await iExecDataProtectorClient.sharing.getResultFromCompletedTask({
+          taskId: consumeProtectedDataResult.taskId,
+          path: "content",
+          onStatusUpdate: (status) => {
+            console.log("[getResultFromCompletedTask] status", status);
+          },
+        });
+      const arrayBuffer = new Uint8Array(res.result).buffer; // Example ArrayBuffer
+
+      // Convert ArrayBuffer to string
+      const decodedString = new TextDecoder().decode(arrayBuffer);
+      // console.log(arrayBuffer);
+
+      console.log(JSON.parse(decodedString));
+      // const consumeProtectedDataResult = tempJson;
+      // console.log("consumeProtectedDataResult", consumeProtectedDataResult);
+      // const uint8Array = new Uint8Array(consumeProtectedDataResult.result.data);
+      // const jsonString = new TextDecoder().decode(uint8Array);
+      // console.log(jsonString);
+
+      // const contentAsBlob = new Blob([consumeProtectedDataResult.result]);
+      // const contentAsObjectUrl = URL.createObjectURL(contentAsBlob);
+      // console.log(contentAsBlob);
+      // console.log(contentAsObjectUrl);
       console.log("SUCCESS");
     } catch (e) {
       // hide loader
@@ -180,8 +202,9 @@ function Temp() {
 
     // Convert ArrayBuffer to string
     const decodedString = new TextDecoder().decode(arrayBuffer);
+    // console.log(arrayBuffer);
 
-    console.log(decodedString);
+    console.log(JSON.parse(decodedString));
     // const contentAsBlob = new Blob([res.result]);
     // const contentAsObjectUrl = URL.createObjectURL(contentAsBlob);
     // const element = document.createElement("a");
@@ -205,7 +228,7 @@ function Temp() {
   };
   const getCollectionsByOwner = async () => {
     const res = await iExecDataProtectorClient.sharing.getCollectionsByOwner({
-      owner: u2,
+      owner: u1,
     });
     console.log(res);
   };
@@ -229,7 +252,7 @@ function Temp() {
   };
   const getRentals = async () => {
     const res = await iExecDataProtectorClient.sharing.getRentals({
-      protectedData: protectedData,
+      renterAddress: u1,
     });
     console.log(res);
   };

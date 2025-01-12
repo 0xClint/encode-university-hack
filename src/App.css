@@ -11,7 +11,6 @@
   --game-cell: 16px;
   --pixel-size: 1;
   --ui-popup-z-index: 500;
-
   /* ******************color */
   --color-primary: 166, 208, 98;
   --color-secondary: 239, 175, 122;
@@ -44,19 +43,24 @@ canvas {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
   }
+
   .card-container {
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -webkit-crisp-edges;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    /* display: flex;
+    --tw-shadow: 4px -4px 0px 0px rgba(125, 125, 125, 0.21) inset;
+    --tw-shadow-colored: inset 3px -6px 0px 0px var(--tw-shadow-color);
+
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    font-weight: 600;
+    background-color: theme("colors.white");
+    border-radius: theme("borderRadius.lg");
+    border: solid 2px #656565;
+    color: #656565;
+  }
+
+  .make-flex {
+    display: flex;
     align-items: center;
-    justify-content: center; */
-    color: #8a664e;
-    padding: 5px;
-    background: rgba(var(--color-secondary));
-    border-radius: 5px;
-    border: 2px solid black;
+    justify-content: center;
   }
   .flex-center {
     display: flex;
@@ -77,11 +81,10 @@ canvas {
     border: 2px solid rgb(113, 113, 113);
     border-radius: 0.5rem;
     font-size: 0.8rem;
-    color: #866149;
+    color: #656565;
     transition: ease 100ms;
   }
   .btn:hover {
-
     transform: translateY(1px);
   }
 }

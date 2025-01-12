@@ -17,7 +17,7 @@ export default function LevelPlacementsLayer({ level }) {
           key={placement.id}
           style={style}
           onClick={() => {
-            if (!level.enableEditing || !placement.canBeDeleted()) {
+            if (!level.editorMode || !placement.canBeDeleted()) {
               return;
             }
             level.deletePlacement(placement);

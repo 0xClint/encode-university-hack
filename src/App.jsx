@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, Temp } from "./pages";
+import { Explore, Game, Home, Level, Levels, MyLands, Temp } from "./pages";
 
 function App() {
   return (
@@ -8,6 +8,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/land/:id" element={<Game />} />
+          <Route path="/levels" element={<Level />} />
+          <Route path="/levels/:id" element={<Levels />} />
+          <Route path="/my-lands" element={<MyLands />} />
           <Route path="/temp" element={<Temp />} />
         </Routes>
       </Router>
