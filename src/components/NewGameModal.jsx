@@ -1,7 +1,7 @@
 import ReactDom from "react-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useGame } from "../contexts/gameProvider";
+import { useGame } from "@/contexts/GameProvider";
 import { IoCloseSharp } from "react-icons/io5";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";

@@ -2,7 +2,7 @@ import styles from "@/components/hud/PopupMessage.module.css";
 import LevelCompleted from "../object-graphics/LevelCompleted";
 import { useKeyPress } from "@/hooks/useKeyPress";
 import { useNavigate, useParams } from "react-router-dom";
-import { useGame } from "../../contexts/gameProvider";
+import { useGame } from "@/contexts/GameProvider";
 
 export default function LevelCompleteMessage() {
   const { id } = useParams();

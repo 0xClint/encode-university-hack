@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Compiler from "../Compiler";
 import landTemplate from "../Levels/landTemplate";
-import { useGame } from "../contexts/GameProvider";
+import { useGame } from "@/contexts/GameProvider";
 
 export default function Game() {
   const { rentalMode, setRentalMode, rentalLandData, setRentalLandData } =

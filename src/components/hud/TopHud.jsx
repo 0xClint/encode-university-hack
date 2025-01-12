@@ -4,7 +4,7 @@ import { FlourCount } from "./FlourCount";
 import InventoryList from "./InventoryList";
 import Loader from "../Loader";
 import { useNavigate } from "react-router-dom";
-import { useGame } from "../../contexts/gameProvider";
+import { useGame } from "@/contexts/GameProvider";
 
 const TopHud = ({ level, isLevelMode }) => {
   const [loader, setLoader] = useState(false);

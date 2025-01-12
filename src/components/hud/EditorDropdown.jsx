@@ -8,7 +8,7 @@ import {
 import React, { useState } from "react";
 import { editorData } from "../../helpers/editorData";
 import MemoizedEditorSprite from "../object-graphics/EditorSprite";
-import { useGame } from "../../contexts/gameProvider";
+import { useGame } from "@/contexts/GameProvider";
 
 const EditorDropdown = ({ level }) => {
   const [activeSprite, setActiveSprite] = useState(null);

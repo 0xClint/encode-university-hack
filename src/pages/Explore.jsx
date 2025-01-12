@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Header, RentLandModal } from "../components";
-import { useGame } from "../contexts/gameProvider";
+import { useGame } from "@/contexts/GameProvider";
 import { shortenAddress } from "../utils/converters";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";

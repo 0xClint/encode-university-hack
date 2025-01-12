@@ -1,8 +1,7 @@
 import React from "react";
-import Compiler from "../Compiler";
 import { Header } from "../components";
 import LevelsMap from "../Levels/LevelsMap";
-import { useGame } from "../contexts/gameProvider";
+import { useGame } from "@/contexts/GameProvider";
 import { useNavigate } from "react-router-dom";
 import { CiLock } from "react-icons/ci";
 
