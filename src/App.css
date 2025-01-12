@@ -1,42 +1,93 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+  --game-viewport-width: 180px;
+  --game-viewport-height: 180px;
+  --game-cell: 16px;
+  --pixel-size: 1;
+  --ui-popup-z-index: 500;
+
+  /* ******************color */
+  --color-primary: 166, 208, 98;
+  --color-secondary: 239, 175, 122;
+  --color-secondary-100: 239, 175, 122;
+  --color-tertiary: 138, 102, 78;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+html,
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+canvas {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+@layer components {
+  .pixelated {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
   }
-  to {
-    transform: rotate(360deg);
+  .card-container {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    color: #8a664e;
+    padding: 5px;
+    background: rgba(var(--color-secondary));
+    border-radius: 5px;
+    border: 2px solid black;
+  }
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn {
+    --tw-shadow: 3px -4px 0px 0px rgba(125, 125, 125, 0.21) inset;
+    --tw-shadow-colored: inset 3px -4px 0px 0px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    padding-left: 0.75rem /* 12px */;
+    padding-right: 0.75rem /* 12px */;
+    padding-top: 0.5rem /* 8px */;
+    padding-bottom: 0.5rem /* 8px */;
+    font-weight: 600;
+    background-color: theme("colors.white");
+    border: 2px solid rgb(113, 113, 113);
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    color: #866149;
+    transition: ease 100ms;
+  }
+  .btn:hover {
+
+    transform: translateY(1px);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 360px) {
+  :root {
+    --pixel-size: 3;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
