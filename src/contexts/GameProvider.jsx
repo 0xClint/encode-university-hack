@@ -34,6 +34,10 @@ const GameProviderFn = () => {
     }
   }
 
+  useEffect(() => {
+    connectWallet();
+  }, []);
+
   const getProtectedDataInCollections = async () => {
     const res =
       await iExecDataProtectorClient.sharing.getProtectedDataInCollections({
@@ -66,7 +70,7 @@ const GameProviderFn = () => {
       const result = listProtectedData.protectedDataInCollection.filter(
         ({ name }) => name.includes("Zenos-")
       );
-      setUserLands(listProtectedData.protectedDataInCollection);
+      setUserLands(result);
     }
   };
 

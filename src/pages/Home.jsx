@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Header, MyLandsModal, NewGameModal } from "../components";
 import { useNavigate } from "react-router-dom";
+import { logoIcon } from "../assets";
 
 export default function Home() {
   const [newGameModal, setNewGameModal] = useState(false);
@@ -18,8 +19,8 @@ export default function Home() {
         <div className=" w-screen h-screen flex-col">
           <div className="relative h-full flex-center pb-10">
             <img
-              src="./logo.png"
-              className="absolute origin-top top-5 h-44 mx-auto"
+              src={logoIcon}
+              className="absolute origin-top top-5 h-14 mx-auto"
             />
             <div className="w-full flex-center font-semibold flex-col gap-3">
               <button
@@ -46,9 +47,7 @@ export default function Home() {
               >
                 Explore
               </button>
-              <button className="btn w-[300px] h-12 pixelated hover:scale-[102%] duration-100 ease-in">
-                Transfer
-              </button>
+
               <button className="btn w-[300px] h-12 pixelated hover:scale-[102%] duration-100 ease-in">
                 Controls
               </button>

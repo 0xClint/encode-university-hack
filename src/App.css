@@ -80,7 +80,7 @@ canvas {
     background-color: theme("colors.white");
     border: 2px solid rgb(113, 113, 113);
     border-radius: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #656565;
     transition: ease 100ms;
   }

@@ -52,7 +52,7 @@ export default function MyLands() {
         rentingFunction={handleRentData}
       />
       <div className=" w-screen h-screen flex-col">
-        <div className="relative h-full flex-center pb-10 border">
+        <div className="relative h-full flex-center pb-10 ">
           <div className="card-container w-[930px]  font-semibold flex-col gap-3 p-9 pt-5">
             <div className="flex mb-3 items-center">
               <FaArrowLeft

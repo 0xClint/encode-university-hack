@@ -5,6 +5,7 @@ import InventoryList from "./InventoryList";
 import Loader from "../Loader";
 import { useNavigate } from "react-router-dom";
 import { useGame } from "@/contexts/GameProvider";
+import { logoIcon } from "../../assets";
 
 const TopHud = ({ level, isLevelMode }) => {
   const [loader, setLoader] = useState(false);
@@ -25,8 +26,9 @@ const TopHud = ({ level, isLevelMode }) => {
     <div className="absolute h-14 top-3 left-0 right-0 flex justify-between items-center mx-5">
       <div
         onClick={() => router("/")}
-        className="scale-[2] origin-left cursor-pointer hover:scale-[2.05] ease-in duration-100"
+        className="scale-[2] text-white font-bold origin-left cursor-pointer hover:scale-[2.05] ease-in duration-100"
       >
+        {/* <img src={logoIcon} className="h-14" /> */}
         Zenos
       </div>
       <div className="flex gap-1">

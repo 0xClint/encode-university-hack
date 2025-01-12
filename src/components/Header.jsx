@@ -13,9 +13,12 @@ export const Header = () => {
     <div className="flex justify-between p-3">
       <div
         onClick={() => router("/")}
-        className="cursor-pointer hover:scale-105 ease-in duration-100"
+        className="cursor-pointer ease-in duration-100"
       >
-        Zenos
+        <img
+          src="logo.svg"
+          className="absolute origin-top top-5 hover:scale-105 h-14 mx-auto"
+        />
       </div>
       <div className=" flex">
         {isConnected ? (
