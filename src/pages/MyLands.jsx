@@ -90,7 +90,7 @@ export default function MyLands() {
                               }
                               className="w-full border-2 border-gray-700 hover:scale-[101%] py-1 text-black rounded text-center"
                             >
-                              Put on Rent
+                              Monetize
                             </button>
                           ) : (
                             <>
@@ -111,7 +111,7 @@ export default function MyLands() {
                   }
                 )}
               </div>
-              <h3 className="text-lg mt-3 mb-1">Rental</h3>
+              <h3 className="text-lg mt-3 mb-1">Purchased</h3>
               <div className="container flex justify-left flex-wrap gap-4 text-sm ">
                 {rentalLands?.map(
                   ({ id, renter, rentalParams, protectedData }, index) => {
@@ -134,7 +134,7 @@ export default function MyLands() {
                         <div className="w-full flex justify-between text-xs ">
                           {rentalParams === null ? (
                             <button className="w-full border-2 border-gray-700 hover:scale-[101%] py-1 text-black rounded text-center">
-                              Put on Rent
+                              Monetize
                             </button>
                           ) : (
                             <>
