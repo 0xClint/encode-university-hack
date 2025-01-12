@@ -196,22 +196,22 @@ const GameProviderFn = () => {
 
     console.log("[rentedProtectedData] status", res);
 
-    const consumeProtectedDataResult =
-      await iExecDataProtectorClient.sharing.consumeProtectedData({
-        protectedData: protectDataAddress,
-        app: import.meta.env.VITE_PROTECTTED_DATA_DELIVERY_TEE_APP,
-        workerpool: import.meta.env.VITE_WORKERPOOL_ADDRESS,
-        onStatusUpdate: (status) => {
-          console.log("[consumeProtectedData] status", status);
-        },
-      });
-    console.log("consumeProtectedDataResult", consumeProtectedDataResult);
+    // const consumeProtectedDataResult =
+    //   await iExecDataProtectorClient.sharing.consumeProtectedData({
+    //     protectedData: protectDataAddress,
+    //     app: import.meta.env.VITE_PROTECTTED_DATA_DELIVERY_TEE_APP,
+    //     workerpool: import.meta.env.VITE_WORKERPOOL_ADDRESS,
+    //     onStatusUpdate: (status) => {
+    //       console.log("[consumeProtectedData] status", status);
+    //     },
+    //   });
+    // console.log("consumeProtectedDataResult", consumeProtectedDataResult);
 
-    const contentAsBlob = new Blob([consumeProtectedDataResult.result]);
-    // const contentAsObjectUrl = URL.createObjectURL(contentAsBlob);
-    console.log(contentAsBlob);
-    // console.log(contentAsObjectUrl);
-    console.log("SUCCESSFULLY CONSUMED!");
+    // const contentAsBlob = new Blob([consumeProtectedDataResult.result]);
+    // // const contentAsObjectUrl = URL.createObjectURL(contentAsBlob);
+    // console.log(contentAsBlob);
+    // // console.log(contentAsObjectUrl);
+    console.log("SUCCESSFULLY RENTED!");
   };
 
   const handleLevelCompleted = (index) => {
