@@ -8,11 +8,11 @@ import TopHud from "@/components/hud/TopHud";
 import { DeathMessage } from "../hud/DeathMessage";
 import LevelCompleteMessage from "../hud/LevelCompleteMessage";
 import EditorDropdown from "../hud/EditorDropdown";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import landTemplate from "../../Levels/landTemplate";
 
-
 export default function RenderGame({ gameData }) {
+  const { id } = useParams();
   const [level, setLevel] = useState(null);
   const location = useLocation();
   const check = location.pathname.includes("/levels");
@@ -38,7 +38,7 @@ export default function RenderGame({ gameData }) {
     return () => {
       levelState.destroy();
     };
-  }, []);
+  }, [gameData, id]);
 
   if (!level) return null;
 

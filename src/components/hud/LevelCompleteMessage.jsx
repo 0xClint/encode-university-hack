@@ -15,7 +15,7 @@ export default function LevelCompleteMessage() {
     localStorage.setItem("level-completed", Number(id) + 1);
 
     router(`/levels/${Number(id) + 1}`);
-    window.location.reload();
+    // window.location.reload();
   };
 
   useKeyPress("Enter", () => {

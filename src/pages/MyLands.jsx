@@ -43,7 +43,7 @@ export default function MyLands() {
       <div
         className={`absolute w-screen h-screen -z-10 bg-[url('https://gameartpartnersimagehost.s3.amazonaws.com/wp-content/uploads/2020/09/GPM1.png')] bg-no-repeat bg-cover bg-center opacity-70`}
       ></div>
-      {loader && <Loader />}
+      {loader && <Loader  status="Data may take 1-2 minutes to load as several processes are happening behind the scenes"/>}
       <Header />
       <RentingLandModal
         isOpen={rentingModal}
