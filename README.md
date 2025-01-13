@@ -31,7 +31,7 @@ We utilized **IExec's DataProtector Core & Sharing tool**, leveraging the follow
 
 - **ConsumeProtectedData**: Facilitates secure access to the game's rented lands and assets, ensuring seamless gameplay with robust data protection using the `ConsumeProtectedData` and `getResultFromCompletedTask` functions.  
 
-We built the game using Vite and React, where I created a Context Provider API to manage the game’s state and interactions. Within this API, I implemented functions to interact with iExec, allowing me to call iExec functions simply by passing arguments. The logic for these functions is housed in the context provider, ensuring modular integration with iExec's services while keeping the component code clean, improving maintainability and scalability. You can find the implementation of the Context Provider in the [add link here](#)
+We built the game using Vite and React, where I created a Context Provider API to manage the game’s state and interactions. Within this API, I implemented functions to interact with iExec, allowing me to call iExec functions simply by passing arguments. The logic for these functions is housed in the context provider, ensuring modular integration with iExec's services while keeping the component code clean, improving maintainability and scalability. You can find the implementation of the Context Provider in the [here](https://github.com/0xClint/encode-university-hack/blob/3a181a74def8f668af2526e1f1f08fcceb0292e3/src/contexts/GameProvider.jsx)
 
 ## Running the Project
 

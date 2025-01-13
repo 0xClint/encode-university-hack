@@ -14,7 +14,6 @@ export default function Home() {
           className={`absolute w-screen h-screen -z-10 bg-[url('https://gameartpartnersimagehost.s3.amazonaws.com/wp-content/uploads/2020/09/GPM1.png')] bg-no-repeat bg-cover bg-center opacity-70`}
         ></div>
         <Header />
-        <Loader />
         <NewGameModal isOpen={newGameModal} setIsOpen={setNewGameModal} />
         {/* <MyLandsModal isOpen={userLandsModal} setIsOpen={setUserLandsModal} /> */}
         <div className=" w-screen h-screen flex-col">
